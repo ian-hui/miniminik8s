@@ -1,6 +1,8 @@
 package apis
 
-import "minik8s/minik8sTypes"
+import (
+	"minik8s/minik8sTypes"
+)
 
 type Container struct {
 	Name       string
@@ -44,7 +46,11 @@ type ResourceRequirements struct {
 	Requests ResourceList
 }
 
-type ResourceList map[string]string
+// https://kubernetes.io/zh-cn/docs/concepts/configuration/manage-resources-containers/ 查阅资料
+type ResourceList struct {
+	Cpu    int
+	Memory int
+}
 
 type VolumeMount struct {
 	Name      string

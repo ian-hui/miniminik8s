@@ -132,6 +132,7 @@ type HostConfig struct {
 type RunningSystem string
 
 const (
+	LabelsContainerName  string        = "containerName"
 	RunningSystemDocker  RunningSystem = "docker"
 	RunningSystemMinik8s RunningSystem = "minik8s"
 	IsTrue               string        = "_true"

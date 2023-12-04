@@ -187,3 +187,12 @@ func (cm *ContainerManager) RestartContainer(ctx context.Context, dockerID strin
 	}
 	return nil
 }
+
+func (cm *ContainerManager) ListContainerWithOpts(ctx context.Context, opts types.ContainerListOptions) ([]types.Container, error) {
+	c, err := cm.client.ContainerList(ctx, opts)
+	if err != nil {
+		K8sLogger.Error("ListContainer error: ", err)
+		return nil, err
+	}
+	return c, nil
+}

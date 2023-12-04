@@ -20,7 +20,7 @@ type PodType string
 
 // podtype labels
 const (
-	Minik8sPodType        = "io.minik8s.pod.type"
+	Minik8sPodTypeLabel   = "io.minik8s.pod.type"
 	Minik8sPausePodType   = "pause"
 	Minik8sPauseImage     = "k8s.gcr.io/pause:3.1"
 	Minik8sGenericPodType = "generic"

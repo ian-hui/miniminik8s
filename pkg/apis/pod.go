@@ -36,13 +36,13 @@ type ObjectMeta struct {
 }
 
 type PodSpec struct {
-	Volumes        []Volume
+	Volumes        []HostVolume
 	Containers     []Container
 	RestartPolicy  minik8sTypes.RestartPolicy
 	InitContainers []Container
 }
 
-type Volume struct {
+type HostVolume struct {
 	Name string
 	Type string
 	Path string
