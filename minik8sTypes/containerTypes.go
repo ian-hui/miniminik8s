@@ -122,7 +122,7 @@ type HostConfig struct {
 	Links            []string    // List of links (in the name:alias form)
 	NetworkMode      string      // [网络模式] Network mode to use for the container
 	PidMode          string      // [PidMode] PID namespace to use for the container
-	IpcMode          string      // [IPC Mode ]IPC namespace to use for the container(设置这三个可以让容器共享主机的网络、PID、IPC、NetworkMode)
+	IpcMode          string      // [IPC Mode ]IPC namespace to use for the container(设置这三个可以让容器共享网络、PID、IPC的ns)
 	Binds            []string    // List of volume bindings for this container
 	PortBindings     nat.PortMap // List of port bindings for this container // Port mapping between the exposed port (container) and the host 配置端口映射，这通常与exposedPorts配合使用
 	CPUResourceLimit int64       // CPU资源限制 单位是10的负9次方核
@@ -136,4 +136,9 @@ const (
 	RunningSystemDocker  RunningSystem = "docker"
 	RunningSystemMinik8s RunningSystem = "minik8s"
 	IsTrue               string        = "_true"
+)
+
+const (
+	IpcModeShareable      = "shareable"
+	NsModeContainerPrefix = "container:"
 )

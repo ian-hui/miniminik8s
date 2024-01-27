@@ -104,3 +104,19 @@ func TestContainerStat(t *testing.T) {
 		fmt.Println(stat.MemoryStats.Usage, stat.CPUStats)
 	}
 }
+
+func TestGetContainerStatus(t *testing.T) {
+	cm := NewContainerManager(dockerclient.GetDockerClient())
+	ctx := context.Background()
+	// c, err := cm.ListALlContainer(ctx)
+	// if err != nil {
+	// 	t.Error(err)
+	// }
+	// for _, container := range c {
+	stat, err := cm.InspectContainer(ctx, "693b6913052c")
+	if err != nil {
+		t.Error(err)
+	}
+	fmt.Println(stat.State)
+	// }
+}
